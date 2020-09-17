@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
   resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
-  #The aboove line can be achieved with 'resources :articles' as all of the restful actions have been exposed
+  #The above line can be achieved with 'resources :articles' as all of the restful actions have been exposed
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 end
